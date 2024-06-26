@@ -1,6 +1,6 @@
 body {
     background-color: #ffffff;
-    color: #fff;
+    color: #000; /* Adjust text color for better readability */
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 60px; /* Adjust the padding value as needed */
@@ -34,12 +34,12 @@ body {
     height: 150px;
     object-fit: cover;
     border-radius: 15px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adjust timing function for smoother animation */
 }
 
 .thumbnail:hover {
-    transform: scale(1.65);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transform: scale(1.1); /* Adjust scale factor for smoother hover effect */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adjust box-shadow properties for smoother appearance */
 }
 
 .modal {
@@ -52,6 +52,7 @@ body {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.9);
+    transition: opacity 0.3s ease; /* Smooth transition for modal opacity */
 }
 
 .modal-content {
@@ -60,6 +61,7 @@ body {
     max-width: 90%;
     max-height: 80%;
     border-radius: 15px;
+    transition: transform 0.3s ease, max-width 0.3s ease, max-height 0.3s ease; /* Smooth transitions for modal content */
 }
 
 .close {
@@ -69,7 +71,7 @@ body {
     color: #fff;
     font-size: 40px;
     font-weight: bold;
-    transition: color 0.3s;
+    transition: color 0.3s ease; /* Smooth transition for close button color */
 }
 
 .close:hover,
