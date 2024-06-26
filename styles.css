@@ -12,7 +12,6 @@ body {
 
 .gallery {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     overflow: auto;
@@ -21,7 +20,7 @@ body {
 .strip {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
     gap: 10px;
     padding: 10px;
 }
@@ -35,7 +34,7 @@ body {
 }
 
 .thumbnail:hover {
-    transform: scale(1.15);
+    transform: scale(1.10);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     justify-content: center;
 }
