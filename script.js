@@ -33,11 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     thumbnails.forEach((thumbnail, index) => {
         thumbnail.addEventListener('click', () => {
-            currentIndex = index;
-            updateThumbnails();
-        });
-
-        thumbnail.addEventListener('dblclick', () => {
             // Expand image to full screen in modal
             modalImg.src = thumbnail.src;
             modalImg.style.maxHeight = '100%'; // Ensure the image fills the modal
