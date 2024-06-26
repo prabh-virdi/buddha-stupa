@@ -38,18 +38,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         thumbnail.addEventListener('dblclick', () => {
-            modal.style.display = 'block';
+            // Expand image to full screen in modal
             modalImg.src = thumbnail.src;
+            modalImg.style.maxHeight = '100%'; // Ensure the image fills the modal
+            modalImg.style.maxWidth = '100%';
+
+            // Show modal with smooth transition
+            modal.style.opacity = '0';
+            modal.style.display = 'block';
+            setTimeout(() => {
+                modal.style.opacity = '1';
+            }, 50); // Adjust timing as needed for smoother transition
         });
     });
 
     closeModal.addEventListener('click', () => {
-        modal.style.display = 'none';
+        // Hide modal with smooth transition
+        modal.style.opacity = '0';
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Adjust timing as needed
     });
 
     window.addEventListener('click', (event) => {
         if (event.target == modal) {
-            modal.style.display = 'none';
+            // Close modal when clicking outside the image with smooth transition
+            modal.style.opacity = '0';
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 300); // Adjust timing as needed
         }
     });
 
