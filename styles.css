@@ -3,6 +3,7 @@ body {
     color: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
+    padding: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
