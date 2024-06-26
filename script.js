@@ -21,6 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
         strip.scrollLeft = thumbnails[currentIndex].offsetLeft - (strip.clientWidth / 2) + (thumbnails[currentIndex].clientWidth / 2);
     };
 
+    const loopScroll = () => {
+        if (strip.scrollLeft === 0) {
+            strip.scrollLeft = strip.scrollWidth - strip.clientWidth;
+        } else if (strip.scrollLeft + strip.clientWidth >= strip.scrollWidth) {
+            strip.scrollLeft = 1;
+        }
+    };
+
     updateThumbnails();
 
     thumbnails.forEach((thumbnail, index) => {
@@ -44,4 +52,30 @@ document.addEventListener('DOMContentLoaded', () => {
             modal.style.display = 'none';
         }
     });
+
+    strip.addEventListener('scroll', () => {
+        loopScroll();
+
+        const center = strip.scrollLeft + strip.clientWidth / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        thumbnails.forEach((thumbnail, index) => {
+            const rect = thumbnail.getBoundingClientRect();
+            const thumbnailCenter = rect.left + rect.width / 2;
+            const distance = Math.abs(center - thumbnailCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        if (closestIndex !== currentIndex) {
+            currentIndex = closestIndex;
+            updateThumbnails();
+        }
+    });
+
+    strip.scrollLeft = strip.scrollWidth / 2;
 });
