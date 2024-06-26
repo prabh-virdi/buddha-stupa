@@ -55,6 +55,37 @@ body {
     transition: opacity 0.3s ease; /* Smooth transition for modal opacity */
 }
 
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.05);
+        opacity: 1;
+    }
+    80% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes bounceOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    20% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
 .modal-content {
     margin: auto;
     display: block;
@@ -62,6 +93,16 @@ body {
     max-height: 80%;
     border-radius: 15px;
     transition: transform 0.3s ease, max-width 0.3s ease, max-height 0.3s ease; /* Smooth transitions for modal content */
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+}
+
+.modal.show .modal-content {
+    animation-name: bounceIn;
+}
+
+.modal.hide .modal-content {
+    animation-name: bounceOut;
 }
 
 .close {
