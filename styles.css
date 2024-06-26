@@ -29,15 +29,15 @@ body {
 }
 
 .thumbnail {
-    width: 20px;
-    height: 30px;
+    width: 100px;
+    height: 150px;
     object-fit: cover;
     border-radius: 1.5px;
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .thumbnail:hover {
-    transform: scale(10);
+    transform: scale(1.6);
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
