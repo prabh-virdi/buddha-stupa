@@ -62,8 +62,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const arrow = document.createElement('div');
         arrow.classList.add('arrow', direction);
         const img = document.createElement('img');
-        img.src = 'images/left.png'; // Set custom image source for arrows
-        img.src = 'images/right.png';
+        img.src = 'fsdf'; // Set custom image source for arrows
+      ;
         arrow.appendChild(img);
         arrow.addEventListener('click', () => {
             gallery.scrollBy({
