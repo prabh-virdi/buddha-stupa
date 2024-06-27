@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const gallery = document.querySelector('.gallery');
     const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-    const totalItems = galleryItems.length;
 
     // Clone images to create infinite scroll illusion
     function cloneImages() {
@@ -47,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const fullscreen = document.createElement('div');
             fullscreen.classList.add('fullscreen');
             const img = document.createElement('img');
-            img.src = item.src;
+            img.src = item.querySelector('img').src;
             fullscreen.appendChild(img);
 
             fullscreen.addEventListener('click', () => {
@@ -58,15 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Arrow navigation
-    function createArrow(direction) {
+    // Function to create custom arrow buttons
+    function createArrow(direction, imageSrc) {
         const arrow = document.createElement('div');
         arrow.classList.add('arrow', direction);
-        arrow.innerHTML = `
-            <svg viewBox="0 0 24 24">
-                <path d="${direction === 'left' ? 'M15 18l-6-6 6-6' : 'M9 18l6-6-6-6'}"></path>
-            </svg>
-        `;
+        const img = document.createElement('img');
+        img.src = imageSrc; // Set custom image source for arrows
+        arrow.appendChild(img);
         arrow.addEventListener('click', () => {
             gallery.scrollBy({
                 left: direction === 'left' ? -300 : 300,
@@ -76,9 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return arrow;
     }
 
-    const leftArrow = createArrow('left');
-    const rightArrow = createArrow('right');
+    // Add custom images for arrow buttons
+    const leftArrow = createArrow('left', 'images/left.png');
+    const rightArrow = createArrow('right', 'images/right.png');
 
     document.body.appendChild(leftArrow);
     document.body.appendChild(rightArrow);
+
+    // Add a text box above the images as a title
+    const titleBox = document.createElement('div');
+    titleBox.classList.add('title-box');
+    titleBox.innerText = 'BUDDHA STUPA'; // Set the title text here
+    document.body.insertBefore(titleBox, document.querySelector('.gallery-container'));
 });
