@@ -13,14 +13,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow: hidden;
     width: 85%;
+    margin: auto;
     height: 220px;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
+    border-radius: 15px;    
     padding: 10px; /* Same padding on all sides */
 }
 
@@ -28,7 +29,8 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    overflow-x: auto;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
