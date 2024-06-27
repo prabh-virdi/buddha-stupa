@@ -120,14 +120,14 @@ body {
     top: 130px;
     left: 50%;
     height: 50px;
-    width: 350px;
+    width: 310px;
     transform: translateX(-50%);
     padding: 10px 20px;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     font-size: 40px;
-    font-color: white;
+    font-color: ffffff;
     font-type: calibri;
     border-radius: 15px;
     z-index: 1000;
