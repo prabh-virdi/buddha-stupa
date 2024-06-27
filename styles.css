@@ -104,10 +104,12 @@ body {
 
 .arrow.left {
     left: 20px;
+    justify-content: center;
 }
 
 .arrow.right {
     right: 20px;
+    justify-content: center;
 }
 
 .arrow img {
@@ -117,7 +119,7 @@ body {
 
 .title-box {
     position: absolute;
-    top: 130px;
+    top: 90px;
     left: 50%;
     height: 50px;
     width: 310px;
@@ -127,8 +129,9 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     font-size: 40px;
-    font-color: ffffff;
-    font-type: calibri;
+    color: #ffffff;
+    font-family: calibri, sans-serif; /* Font type */
+    text-align: center; /* Center align text */
     border-radius: 15px;
     z-index: 1000;
 }
