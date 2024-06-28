@@ -14,11 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const img = document.createElement('img');
             img.src = item.src;
-            img.style.width = `${rect.width}px`;
-            img.style.height = `${rect.height}px`;
             img.style.position = 'absolute';
             img.style.top = `${rect.top}px`;
             img.style.left = `${rect.left}px`;
+            img.style.width = `${rect.width}px`;
+            img.style.height = `${rect.height}px`;
             img.style.transition = 'all 0.3s ease';
 
             fullscreen.appendChild(img);
