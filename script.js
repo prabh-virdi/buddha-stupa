@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('click', (e) => {
         if (e.target.classList.contains('fullscreen')) {
-            e.target.style.transform = 'translate(0, 0) scale(0.9)';
             e.target.classList.remove('fullscreen');
             e.target.classList.add('fullscreen-close');
+            setTimeout(() => {
+                e.target.style.transform = '';
+            }, 200); // Ensure the bounce effect is noticeable
         }
     });
 });
