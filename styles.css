@@ -60,9 +60,9 @@ body {
 .fullscreen {
     position: fixed;
     top: 0;
-    left: center;
-    width: 100vh;
-    height: 100vh; 
+    left: 0;
+    width: 50%;
+    height: 50%; 
    /* max-width: 90%;
     max-height: 80%;*/
     /*transform: translate(-50%, -50%); 
