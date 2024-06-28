@@ -27,7 +27,7 @@ body {
 
 .gallery {
    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     padding: 10px;
     width: 100%;
@@ -47,20 +47,20 @@ body {
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    filter: blur(0px);
-    background: rgba(255, 255, 255, 0.25);
+    /*filter: blur(0px);
+    background: rgba(255, 255, 255, 0.25);*/
 }
 
 .gallery-item:hover {
     transform: scale(1.1);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    filter: blur(0);
+   /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    filter: blur(0);*/
 }
 
 .fullscreen {
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: auto;
     height: auto; 
     max-width: 90%;
@@ -81,17 +81,17 @@ body {
     transition: all 0.3s ease;
 }
 .fullscreen.fullscreen-open {
-    transform: translate(-50%, -50%) scale(1);
+    transform: /*translate(-50%, -50%)*/ scale(1);
 }
 
 .fullscreen.fullscreen-close {
-    transform: translate(-50%, -50%) scale(0.0001);
+    transform: /*translate(-50%, -50%)*/ scale(0.0001);
     transition: transform 0.2s ease;
 }
 
 .blur-background {
     filter: blur(5px);
-} */
+}
 
 .title-box {
     position: absolute;
