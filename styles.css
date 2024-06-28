@@ -17,7 +17,7 @@ body {
     overflow: hidden;
     width: 85%;
     margin: auto;
-    height: 220px;
+    height: 80%;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
@@ -27,12 +27,14 @@ body {
 
 .gallery {
     display: flex;
+    flex-direction: Column;
     align-items: center;
     gap: 10px;
-    overflow-x: scroll;
+    overflow-y: scroll;
     scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: none;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: 6;
+    scrollbar-border-radius: 3px;
     -webkit-overflow-scrolling: touch;
     padding: 20px;
     transition: scroll 0.3s ease;
@@ -63,28 +65,18 @@ body {
 
 .fullscreen {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: auto;
-    height: auto;
-    max-width: 150%;
-    max-height: 150%;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain; /* ensures the image maintains its aspect ratio */ 
     z-index: 1000;
-    display: flex;
-    justify-content: center;
     align-items: center;
-}
-
-.fullscreen img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    border-radius: 15px;
-    transition: all 0.3s ease;
 }
 .fullscreen-close {
     transform: scale(0.9); /* added for the shrink and bounce effect */
+    transition: transform 0.2s ease;
+}
 
 .arrow {
     position: absolute;
