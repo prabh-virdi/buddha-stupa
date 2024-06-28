@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             document.body.appendChild(fullscreen);
+
+            // Add animation to move from original position to center
+            requestAnimationFrame(() => {
+                fullscreen.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
         });
     });
 });
