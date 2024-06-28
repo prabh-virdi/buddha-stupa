@@ -20,17 +20,24 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    position: relative;
     overflow: hidden;
+     position: relative;
     padding: 20px; /* Same padding on all sides */
 }
 
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Multiple columns */
+   display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 10px;
-    scroll-behavior: smooth;
-    padding: 20px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.gallery::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
 }
 
 .gallery-item {
