@@ -89,6 +89,9 @@ body {
     transition: transform 0.2s ease;
 }
 
+.blur-background {
+    filter: blur(5px);
+    
 .arrow {
     position: absolute;
     top: 50%;
