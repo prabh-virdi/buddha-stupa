@@ -16,9 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
             img.src = item.src;
             img.style.width = `${rect.width}px`;
             img.style.height = `${rect.height}px`;
+            img.style.position = 'absolute';
             img.style.top = `${rect.top}px`;
             img.style.left = `${rect.left}px`;
-            img.style.position = 'absolute';
+            img.style.transition = 'all 0.3s ease';
 
             fullscreen.appendChild(img);
             document.body.appendChild(fullscreen);
@@ -26,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             requestAnimationFrame(() => {
                 fullscreen.style.transition = 'background 0.3s ease';
                 fullscreen.style.background = 'rgba(0, 0, 0, 0.8)';
-                img.style.transition = 'all 0.3s ease';
                 img.style.top = '50%';
                 img.style.left = '50%';
                 img.style.transform = 'translate(-50%, -50%)';
