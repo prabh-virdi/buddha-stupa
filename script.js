@@ -1,19 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modalImg');
+    const closeModal = document.querySelector('.close');
+    const thumbnails = document.querySelectorAll('.thumbnail');
+    const strip = document.getElementById('strip');
+    let currentIndex = Math.floor(thumbnails.length / 2);
 
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            item.classList.add('fullscreen');
+    const updateThumbnails = () => {
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.className = 'thumbnail';
+            if (index === currentIndex) {
+                thumbnail.classList.add('main');
+            } else if (index < currentIndex) {
+                thumbnail.classList.add(`left-${currentIndex - index}`);
+            } else if (index > currentIndex) {
+                thumbnail.classList.add(`right-${index - currentIndex}`);
+            }
+        });
+
+        strip.scrollLeft = thumbnails[currentIndex].offsetLeft - (strip.clientWidth / 2) + (thumbnails[currentIndex].clientWidth / 2);
+    };
+
+    const loopScroll = () => {
+        if (strip.scrollLeft === 0) {
+            strip.scrollLeft = strip.scrollWidth - strip.clientWidth;
+        } else if (strip.scrollLeft + strip.clientWidth >= strip.scrollWidth) {
+            strip.scrollLeft = 1;
+        }
+    };
+
+    updateThumbnails();
+
+    thumbnails.forEach((thumbnail, index) => {
+        thumbnail.addEventListener('click', () => {
+            currentIndex = index;
+            updateThumbnails();
+        });
+
+        thumbnail.addEventListener('dblclick', () => {
+            modal.style.display = 'block';
+            modalImg.src = thumbnail.src;
         });
     });
 
-    document.addEventListener('click', (e) => {
-        if (e.target.classList.contains('fullscreen')) {
-            e.target.classList.remove('fullscreen');
-            e.target.classList.add('fullscreen-close');
-            setTimeout(() => {
-                e.target.classList.remove('fullscreen-close');
-            }, 200); // Ensure the bounce effect is noticeable
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
         }
     });
+
+    strip.addEventListener('scroll', () => {
+        loopScroll();
+
+        const center = strip.scrollLeft + strip.clientWidth / 2;
+        let closestIndex = 0;
+        let closestDistance = Infinity;
+
+        thumbnails.forEach((thumbnail, index) => {
+            const rect = thumbnail.getBoundingClientRect();
+            const thumbnailCenter = rect.left + rect.width / 2;
+            const distance = Math.abs(center - thumbnailCenter);
+
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestIndex = index;
+            }
+        });
+
+        if (closestIndex !== currentIndex) {
+            currentIndex = closestIndex;
+            updateThumbnails();
+        }
+    });
+
+    strip.scrollLeft = strip.scrollWidth / 2;
 });
