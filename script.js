@@ -4,15 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     galleryItems.forEach(item => {
         item.addEventListener('click', () => {
             item.classList.add('fullscreen');
-            setTimeout(() => {
-                item.style.transform = 'translate(0, 0)';
-            }, 1); // Ensure the transition starts
-        });
-
-        item.addEventListener('transitionend', (e) => {
-            if (e.propertyName === 'transform' && !item.classList.contains('fullscreen')) {
-                item.classList.remove('fullscreen-close');
-            }
         });
     });
 
@@ -21,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.target.classList.remove('fullscreen');
             e.target.classList.add('fullscreen-close');
             setTimeout(() => {
-                e.target.style.transform = '';
+                e.target.classList.remove('fullscreen-close');
             }, 200); // Ensure the bounce effect is noticeable
         }
     });
