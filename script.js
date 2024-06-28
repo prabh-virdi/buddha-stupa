@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.appendChild(fullscreen);
 
             requestAnimationFrame(() => {
-                requestAnimationFrame(() => { // double RAF to ensure smooth transition
                 fullscreen.style.transition = 'background 0.5s ease';
                 fullscreen.style.background = 'rgba(0, 0, 0, 0.8)';
                 img.style.top = '50%';
