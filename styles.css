@@ -65,8 +65,8 @@ body {
     height: 100%; 
    /* max-width: 90%;
     max-height: 80%;*/
-    /*transform: translate(-50%, -50%);    
-    object-fit: contain; /* ensures the image maintains its aspect ratio */ 
+    /*transform: translate(-50%, -50%);    */
+    object-fit: contain; ensures the image maintains its aspect ratio */ 
     z-index: 1000;
     display: flex;
     justify-content: center;
