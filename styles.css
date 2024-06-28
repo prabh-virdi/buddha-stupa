@@ -26,7 +26,8 @@ body {
 }
 
 .gallery {
-    display: flex;
+    display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Multiple columns */
     flex-direction: Column;
     align-items: center;
     gap: 10px;
@@ -40,19 +41,13 @@ body {
     transition: scroll 0.3s ease;
 }
 
-.gallery::-webkit-scrollbar {
-    display: none;
-}
-
 .gallery-item {
-    height: 300px;
-    width: 200px;
+    height: 150px;
+    width: 10px;
     object-fit: cover;
-    scroll-snap-align: center;
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    flex-shrink: 0;
     filter: blur(0px);
     background: rgba(255, 255, 255, 0.25);
 }
@@ -71,7 +66,7 @@ body {
     height: 100vh;
     object-fit: contain; /* ensures the image maintains its aspect ratio */ 
     z-index: 1000;
-    align-items: center;
+    transition: all 0.3s ease;
 }
 .fullscreen-close {
     transform: scale(0.9); /* added for the shrink and bounce effect */
@@ -95,7 +90,7 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.arrow:hover {
+/*.arrow:hover {
     background-color: rgba(255, 255, 255, 0.9);
 }
 
@@ -111,8 +106,8 @@ body {
 
 .arrow img {
     width: 65%; /* Ensure arrow image fits within the arrow container */
-    height: 65%;
-}
+    /*height: 65%;
+} */
 
 .title-box {
     position: absolute;
