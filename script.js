@@ -8,28 +8,38 @@ document.addEventListener('DOMContentLoaded', () => {
             if (isFullscreenOpen) return; // Prevent opening multiple fullscreen images
             isFullscreenOpen = true;
 
+            const rect = item.getBoundingClientRect();
             const fullscreen = document.createElement('div');
             fullscreen.classList.add('fullscreen');
+            fullscreen.style.width = `${rect.width}px`;
+            fullscreen.style.height = `${rect.height}px`;
+            fullscreen.style.top = `${rect.top}px`;
+            fullscreen.style.left = `${rect.left}px`;
+
             const img = document.createElement('img');
             img.src = item.src;
             fullscreen.appendChild(img);
 
+            document.body.appendChild(fullscreen);
+
             // Add animation to move from original position to center
             requestAnimationFrame(() => {
-                fullscreen.classList.add('fullscreen-open');
+                fullscreen.style.transition = 'all 0.3s ease';
+                fullscreen.style.width = 'auto';
+                fullscreen.style.height = 'auto';
+                fullscreen.style.top = '50%';
+                fullscreen.style.left = '50%';
+                fullscreen.style.transform = 'translate(-50%, -50%) scale(1)';
             });
 
             fullscreen.addEventListener('click', () => {
-                fullscreen.classList.remove('fullscreen-open');
-                fullscreen.classList.add('fullscreen-close');
-                document.querySelector('.gallery').classList.remove('blur-background');
+                fullscreen.style.transform = 'translate(-50%, -50%) scale(0.1)';
                 fullscreen.addEventListener('transitionend', () => {
                     fullscreen.remove();
                     isFullscreenOpen = false;
                 });
             });
 
-            document.body.appendChild(fullscreen);
             document.querySelector('.gallery').classList.add('blur-background');
         });
     });
