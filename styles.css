@@ -14,8 +14,8 @@ body {
     justify-content: center;
     align-items: center;
     width: 85%;
-  /*margin: auto;*/
     height: 80%;
+    margin: auto;
     background: rgba(255, 255, 255, 0.25);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
@@ -65,7 +65,7 @@ body {
     height: auto; 
     max-width: 90%;
     max-height: 80%;
-    transform: translate(-50%, -50%);    
+    /*transform: translate(-50%, -50%);    
     object-fit: contain; /* ensures the image maintains its aspect ratio */ 
     z-index: 1000;
     display: flex;
@@ -85,47 +85,12 @@ body {
 }
 
 .fullscreen.fullscreen-close {
-    transform: translate(-50%, -50%) scale(0.1);
+    transform: translate(-50%, -50%) scale(0.0001);
     transition: transform 0.2s ease;
 }
 
 .blur-background {
     filter: blur(5px);
-    
-.arrow {
-    position: absolute;
-    top: 50%;
-    width: 30px;
-    height: 30px;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    z-index: 10;
-    user-select: none;
-    transform: translateY(-50%);
-    transition: background-color 0.3s ease;
-}
-
-/*.arrow:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-}
-
-.arrow.left {
-    left: 20px;
-    justify-content: center;
-}
-
-.arrow.right {
-    right: 20px;
-    justify-content: center;
-}
-
-.arrow img {
-    width: 65%; /* Ensure arrow image fits within the arrow container */
-    /*height: 65%;
 } */
 
 .title-box {
