@@ -29,30 +29,30 @@ body {
    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
-    padding: 10px;
+    padding: auto;
     width: 100%;
     height: 100%;
     overflow: auto;
     scrollbar-width: none; /* For Firefox */
 }
 
-.gallery::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
 }
 
 .gallery-item {
+    position: relative;
     height: 150px;
     width: 100px;
+    margin: 4px;
     object-fit: cover;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    transition: 0.3s ease, box-shadow 0.3s ease;
+    tranform: scale(1.15);
     cursor: pointer;
-    /*filter: blur(0px);
-    background: rgba(255, 255, 255, 0.25);*/
 }
 
 .gallery-item:hover {
-    transform: scale(1.1);
+    transform: scale(1);
    /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     filter: blur(0);*/
 }
