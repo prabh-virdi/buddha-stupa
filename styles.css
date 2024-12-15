@@ -27,7 +27,7 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Auto-fit columns */
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); /* Auto-fit columns */
     gap: 15px; /* Same gap as container padding */
     width: 100%;
     height: 100%;
