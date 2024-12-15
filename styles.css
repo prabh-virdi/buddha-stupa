@@ -10,112 +10,95 @@ body {
 }
 
 .gallery-container {
-    display: flex;
+    display: flex-wrap;
     justify-content: center;
     align-items: center;
-    width: 85%;
-    height: 80%;
+    width: 90%;
+    height: 85%;
     margin: auto;
     background: rgba(255, 255, 255, 0.25);
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 20px 20px 40px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
-    overflow: hidden;
-    position: relative;
-    padding: 20px; /* Same padding on all sides */
+    border-radius: 32px;
+    padding: 15px;
+    overflow: auto;
+    scrollbar-width: none;
 }
 
 .gallery {
    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 1px;
-    padding: auto;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /*Auto-Fit Columns */
+    gap: 15px;
     width: 100%;
     height: 100%;
     overflow: auto;
-    scrollbar-width: none; /* For Firefox */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 }
-
+.gallery: :-webkit-scrollbar {
+    width: 8px; /*narrow scrollbar for better aesthetic*/
 }
-
+.gallery::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
 .gallery-item {
     position: relative;
-    height: 150px;
-    width: 100px;
-    margin: 4px;
+    width: 100%;
+    aspect-ratio: 3 / 2; 
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 18px;
     overflow: hidden;
-    transition: 0.3s ease, box-shadow 0.3s ease;
-    tranform: scale(1.15);
     cursor: pointer;
+    transition: 0.3s ease, box-shadow 0.3s ease;
 }
-.item img{
+.gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
   display: block;
-  transition: 0.3s;
+  transition: transform 0.3s ease, filter 0.3s ease;
   transform: scale(1.15);
+  border-radius: 18px;
+  filter: blur(2px);
 }
-.item:hover img{
-  transform: scale(1);
-}
-.item .overlay{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: grayscale(100%);
-  background-color: rgba(85, 60, 154, 0.3);
-  overflow: hidden;
-  padding: 15px;
-  transition: opacity 0.2s ease-in-out;
-}
-.item:hover .overlay{
-  opacity: 0;
+.gallery-item:hover img {
+    transform: scale(1); /* Smooth scale on hover */
+    border-radius: 18px;
+    filter: blur(0px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Add hover shadow */
 }
 
 .fullscreen {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; 
-   /* max-width: 90%;
-    max-height: 80%;*/
-    /*transform: translate(-50%, -50%); */
-   /* object-fit: contain; /*ensures the image maintains its aspect ratio */ 
-    border-radius: 0px;
+    top: 50%;
+    left: 50%;
+    width: 95vw;
+    height: 95vh;
+    transform: translate(-50%, -50%) scale(0.8);
+    object-fit: cover;
+    border-radius: 20px;
     z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.5s ease;
-}
-    .fullscreen img {
-    max-width: 90%;
-    max-height: 80%;
-    object-fit: contain;
-    border-radius: 15px;
-    transition: all 0.5s ease;
-}
-.fullscreen.fullscreen-open {
-    transform: /*translate(-50%, -50%)*/ scale(1);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    pointer-events: none;
 }
 
-.fullscreen.fullscreen-close {
-    transform: /*translate(-50%, -50%)*/ scale(1);
+.fullscreen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
     transition: transform 0.5s ease;
 }
 
-.blur-background {
-    filter: blur(5px);
+.fullscreen.fullscreen-open {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .title-box {
